@@ -1,14 +1,13 @@
-package com.sg.bookappfirebase
+package com.sg.bookappfirebase.adapters
 
-import android.app.AlertDialog
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
+import com.sg.bookappfirebase.activities.FilterCategory
+import com.sg.bookappfirebase.model.ModelCategory
+import com.sg.bookappfirebase.R
 
 class AdapterCategory(
     val categoryArrayList: ArrayList<ModelCategory>

@@ -1,4 +1,4 @@
-package com.sg.bookappfirebase
+package com.sg.bookappfirebase.activities
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -8,9 +8,8 @@ import android.util.Patterns
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
+import com.sg.bookappfirebase.R
 import kotlinx.android.synthetic.main.activity_register.*
-import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
 

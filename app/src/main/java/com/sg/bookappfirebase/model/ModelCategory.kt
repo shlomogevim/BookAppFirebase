@@ -1,4 +1,4 @@
-package com.sg.bookappfirebase
+package com.sg.bookappfirebase.model
 
 data class ModelCategory(
     var id: String = "",

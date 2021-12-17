@@ -1,9 +1,10 @@
-package com.sg.bookappfirebase
+package com.sg.bookappfirebase.activities
 
-import android.content.Context
 import android.widget.Filter
+import com.sg.bookappfirebase.model.ModelCategory
+import com.sg.bookappfirebase.adapters.AdapterCategory
 
-class FilterCategory(val filterList:ArrayList<ModelCategory>, var adapterCategory:AdapterCategory):Filter(){
+class FilterCategory(val filterList:ArrayList<ModelCategory>, var adapterCategory: AdapterCategory):Filter(){
 
     override fun performFiltering(p0: CharSequence?): FilterResults {
         var constrain=p0

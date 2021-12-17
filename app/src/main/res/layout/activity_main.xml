@@ -11,7 +11,7 @@
 
     android:keepScreenOn="true"
 
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <ImageView
         android:id="@+id/iconIv__login"

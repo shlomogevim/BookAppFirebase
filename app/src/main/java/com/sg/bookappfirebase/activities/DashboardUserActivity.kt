@@ -1,9 +1,10 @@
-package com.sg.bookappfirebase
+package com.sg.bookappfirebase.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
+import com.sg.bookappfirebase.R
 import kotlinx.android.synthetic.main.activity_dashboard_user.*
 
 class DashboardUserActivity : AppCompatActivity() {
@@ -19,7 +20,7 @@ class DashboardUserActivity : AppCompatActivity() {
 
         logoutBtn__Dashboard_user.setOnClickListener {
             firebaseAuth.signOut()
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }

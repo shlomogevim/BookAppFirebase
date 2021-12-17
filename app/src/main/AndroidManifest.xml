@@ -10,25 +10,25 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.BookAppFirebase">
         <activity
-            android:name=".CategoryAddActivity"
+            android:name=".activities.CategoryAddActivity"
             android:exported="false" />
         <activity
-            android:name=".DashboardAdminActivity"
+            android:name=".activities.DashboardAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".DashboardUserActivity"
+            android:name=".activities.DashboardUserActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

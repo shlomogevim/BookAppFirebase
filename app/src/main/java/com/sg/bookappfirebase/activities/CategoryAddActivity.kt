@@ -1,11 +1,14 @@
-package com.sg.bookappfirebase
+package com.sg.bookappfirebase.activities
 
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.sg.bookappfirebase.*
 import kotlinx.android.synthetic.main.activity_category_add.*
 
 class CategoryAddActivity : AppCompatActivity() {
@@ -45,22 +48,13 @@ class CategoryAddActivity : AppCompatActivity() {
     private fun addCategoryFirebase() {
         progressDialog.show()
         val timestamp = System.currentTimeMillis()
-        val hashMap = HashMap<String, Any>()
-        hashMap["id"] = "$timestamp"
-        hashMap["category"] = category
-        hashMap["timestap"] = timestamp
-        hashMap["uid"] = "${firebaseAuth.uid}"
+        val data = HashMap<String, Any>()
 
-     /* val data = HashMap<String, Any>()
-        data.put(CATEGORY, selectedCategory)
-        data.put(NUM_COMMENTS, 0)
-        data.put(NUM_LIKES, 0)
-        data.put(THOUGHT_TXT, addThoughtTxt.text.toString())
-        data.put(TIMESTAMP, FieldValue.serverTimestamp())
-        data.put(USERNAME, FirebaseAuth.getInstance().currentUser?.displayName.toString())
-        data.put(USER_ID, FirebaseAuth.getInstance().currentUser?.uid.toString())
-
-        FirebaseFirestore.getInstance().collection(THOUGHT_REF).add(data)
+        data.put(CATEGORY_ID,"$timestamp")
+        data.put(CATEGORY_CATEGORY,category)
+        data.put(CATEGORY_TIMESTAMP,timestamp)
+        data.put(CATEGORY_UID,"${firebaseAuth.uid}")
+        FirebaseFirestore.getInstance().collection(CATEGORY_REF).add(data)
             .addOnSuccessListener {
                 finish()
             }
@@ -68,14 +62,14 @@ class CategoryAddActivity : AppCompatActivity() {
                 Log.e(TAG, "could not add post exception because --> ${it.message}")
             }
 
-    }*/
+
 
 
 
 
         val ref = FirebaseDatabase.getInstance().getReference("Categories")
         ref.child("$timestamp")
-            .setValue(hashMap)
+            .setValue(data)
             .addOnSuccessListener {
                 Toast.makeText(this, "Add category succssfully ....", Toast.LENGTH_LONG).show()
                 progressDialog.dismiss()

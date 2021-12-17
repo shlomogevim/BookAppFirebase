@@ -1,4 +1,4 @@
-package com.sg.bookappfirebase
+package com.sg.bookappfirebase.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.sg.bookappfirebase.R
 
 class SplashActivity : AppCompatActivity() {
 
@@ -31,7 +32,7 @@ class SplashActivity : AppCompatActivity() {
     private fun checkUser() {
         var firebaseUser=firebaseAuth.currentUser
         if (firebaseUser==null){
-             startActivity(Intent(this,MainActivity::class.java))
+             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }else{
 
@@ -41,10 +42,10 @@ class SplashActivity : AppCompatActivity() {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val userType=snapshot.child("userType").value
                         if (userType=="user"){
-                            startActivity(Intent(this@SplashActivity,DashboardUserActivity::class.java))
+                            startActivity(Intent(this@SplashActivity, DashboardUserActivity::class.java))
                             finish()
                         }else if (userType=="admin"){
-                            startActivity(Intent(this@SplashActivity,DashboardAdminActivity::class.java))
+                            startActivity(Intent(this@SplashActivity, DashboardAdminActivity::class.java))
                             finish()
                         }
                     }
