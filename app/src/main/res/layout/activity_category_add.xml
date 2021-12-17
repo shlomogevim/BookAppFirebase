@@ -53,7 +53,7 @@
          android:background="@drawable/shape_edittext01"
          android:drawableStart="@drawable/ic_category_gray"
          android:padding="10dp"
-         android:text="Category Title"
+         android:hint="Category Title"
          android:inputType="textPersonName|textCapSentences"
          android:drawablePadding="10dp"
          android:textColor="@color/black"

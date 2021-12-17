@@ -4,10 +4,8 @@ import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_category_add.*
 
 class CategoryAddActivity : AppCompatActivity() {
@@ -30,6 +28,7 @@ class CategoryAddActivity : AppCompatActivity() {
         }
         submitBtn_addCategory.setOnClickListener {
             validateData()
+
         }
     }
 
@@ -52,6 +51,28 @@ class CategoryAddActivity : AppCompatActivity() {
         hashMap["timestap"] = timestamp
         hashMap["uid"] = "${firebaseAuth.uid}"
 
+     /* val data = HashMap<String, Any>()
+        data.put(CATEGORY, selectedCategory)
+        data.put(NUM_COMMENTS, 0)
+        data.put(NUM_LIKES, 0)
+        data.put(THOUGHT_TXT, addThoughtTxt.text.toString())
+        data.put(TIMESTAMP, FieldValue.serverTimestamp())
+        data.put(USERNAME, FirebaseAuth.getInstance().currentUser?.displayName.toString())
+        data.put(USER_ID, FirebaseAuth.getInstance().currentUser?.uid.toString())
+
+        FirebaseFirestore.getInstance().collection(THOUGHT_REF).add(data)
+            .addOnSuccessListener {
+                finish()
+            }
+            .addOnFailureListener {
+                Log.e(TAG, "could not add post exception because --> ${it.message}")
+            }
+
+    }*/
+
+
+
+
         val ref = FirebaseDatabase.getInstance().getReference("Categories")
         ref.child("$timestamp")
             .setValue(hashMap)
@@ -70,7 +91,6 @@ class CategoryAddActivity : AppCompatActivity() {
 
 
             }
-
 
     }
 }

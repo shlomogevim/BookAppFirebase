@@ -6,73 +6,99 @@
     android:layout_height="match_parent"
     android:background="@drawable/back01"
     tools:context=".DashboardAdminActivity">
+
     <RelativeLayout
-        android:id="@+id/toolbarRlDashboard_user"
+        android:id="@+id/toolbarRl_Dashboard_admin"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:background="@drawable/shape_toolbar02">
+
         <TextView
             android:id="@+id/title_Tv_Dashboard_admin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/white"
+            android:layout_marginTop="8dp"
             android:text="Dashboard Admin"
+            android:textColor="@color/white"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/subTitle_Dashboard_admin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/title_Tv_Dashboard_admin"
+            android:layout_centerHorizontal="true"
             android:text="abc@example.com"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
+
         <ImageView
             android:id="@+id/logoutBtn__Dashboard_admin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_logout_white"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_logout_white" />
 
     </RelativeLayout>
-    <LinearLayout
-        android:orientation="horizontal"
+
+    <EditText
+        android:id="@+id/searchEt_Dashboard_admin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/toolbarRl_Dashboard_admin"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/white"
+        android:drawableStart="@drawable/ic_search_gray"
+        android:hint="Search"
+        android:padding="10dp"
+        android:textColorHint="@color/gray01" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesRv_Dashboard_admin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/row_category"
+        android:layout_above="@id/addCategoryTil_Dashboard_admin"
+        android:layout_below="@id/searchEt_Dashboard_admin"
+        android:layout_margin="5dp" />
+
+
+    <LinearLayout
+        android:id="@+id/addCategoryTil_Dashboard_admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_alignParentBottom="true">
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/addCategoryBtn_Dash_admin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginEnd="10dp"
+            android:layout_weight="1"
             android:background="@drawable/shape_button01"
             android:minHeight="50dp"
             android:text="+ Add Category"
             android:textAllCaps="false"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addPdfFab_Dash_admin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_pdf_add_white"
             app:backgroundTint="@color/purple_500"
             app:fabCustomSize="50dp"
-            android:src="@drawable/ic_pdf_add_white"
-            app:tint="@color/white"/>
-
-
-
+            app:tint="@color/white" />
 
 
     </LinearLayout>
-
-
-
 </RelativeLayout>
