@@ -12,8 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        loginBtn_main.setOnClickListener {
+         loginBtn_main.setOnClickListener {
             val intent=Intent(this, LoginActivity::class.java)
             startActivity(intent)
 

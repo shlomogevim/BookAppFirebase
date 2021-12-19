@@ -1,16 +1,16 @@
 package com.sg.bookappfirebase.activities
 
 import android.widget.Filter
-import com.sg.bookappfirebase.model.ModelCategory
-import com.sg.bookappfirebase.adapters.AdapterCategory
+import com.sg.bookappfirebase.model.Cat
+import com.sg.bookappfirebase.adapters.categoryAdapter
 
-class FilterCategory(val filterList:ArrayList<ModelCategory>, var adapterCategory: AdapterCategory):Filter(){
+class FilterCategory(val filterList:ArrayList<Cat>, var adapterCategory: categoryAdapter):Filter(){
 
     override fun performFiltering(p0: CharSequence?): FilterResults {
         var constrain=p0
         val result= FilterResults()
 
-        val filterModels:ArrayList<ModelCategory> = ArrayList()
+        val filterModels:ArrayList<Cat> = ArrayList()
 
 
         if (constrain!=null && constrain.isNotEmpty()){
@@ -34,9 +34,9 @@ class FilterCategory(val filterList:ArrayList<ModelCategory>, var adapterCategor
 
     override fun publishResults(constrain: CharSequence?, result: FilterResults?) {
 
-        val list= result?.values as ArrayList<ModelCategory>
-        adapterCategory= AdapterCategory(list)
-        adapterCategory.notifyDataSetChanged()
+      /*  val list= result?.values as ArrayList<Category>
+        adapterCategory= categoryAdapter(this,list)
+        adapterCategory.notifyDataSetChanged()*/
     }
 
 

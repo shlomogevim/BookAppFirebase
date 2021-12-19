@@ -5,18 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.sg.bookappfirebase.activities.FilterCategory
-import com.sg.bookappfirebase.model.ModelCategory
+import com.sg.bookappfirebase.model.Cat
 import com.sg.bookappfirebase.R
+import com.sg.bookappfirebase.interfaces.CategoryInterface
+import com.sg.bookappfirebase.interfaces.CategoryInterfaceOld
 
-class AdapterCategory(
-    val categoryArrayList: ArrayList<ModelCategory>
-) : RecyclerView.Adapter<AdapterCategory.CateroryHolder>() {
-
-
-    private var filterList = categoryArrayList
-    private var filter: FilterCategory? = null
-
+class categoryAdapter(
+    val categoryArrayList: ArrayList<Cat>,val categoryInterface: CategoryInterfaceOld
+) : RecyclerView.Adapter<categoryAdapter.CateroryHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CateroryHolder {
         val view = LayoutInflater.from(parent?.context)
@@ -32,56 +28,87 @@ class AdapterCategory(
 
     inner class CateroryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryTv = itemView?.findViewById<TextView>(R.id.category_Tv_row_category)
-        val deletBtn = itemView?.findViewById<ImageButton>(R.id.deleteBtn_row_category)
+        val deleteBtn = itemView?.findViewById<ImageButton>(R.id.deleteBtn_row_category)
 
-        fun bindCategory(category: ModelCategory) {
+        fun bindCategory(category: Cat) {
             categoryTv?.text = category.category
-
-            /*deletBtn.setOnClickListener {
-                val builder = AlertDialog.Builder(context)
-                builder.setTitle("Delete")
-                    .setMessage("Are you sure you want to delete this category?")
-                    .setPositiveButton("Confirm") { a, d ->
-                        Toast.makeText(context, "Deleting ...", Toast.LENGTH_LONG).show()
-                        deletCategory(category)
-                    }.setNegativeButton("Cancel") { a, d ->
-                        a.dismiss()
-                    }
-
-                    .show()
-            }*/
-
+            deleteBtn.setOnClickListener {
+                categoryInterface.categoryInterfaceListenet(category)
+            }
         }
-
-        /*private fun deletCategory(model: ModelCategory) {
-       val id = model.id
-       val ref = FirebaseDatabase.getInstance().getReference("Categories")
-       ref.child(id)
-           .removeValue()
-           .addOnSuccessListener {
-               Toast.makeText(context, "Deleting ...", Toast.LENGTH_LONG).show()
-           }
-           .addOnFailureListener {
-               Toast.makeText(
-                   context,
-                   "Unable to delete category ->${it.message} ...",
-                   Toast.LENGTH_LONG
-               ).show()
-           }
-   }*/
-
-
     }
-
-    /* override fun getFilter(): Filter {
-         if (filter==null){
-             filter= FilterCategory(filterList,this)
-         }
-         return filter as FilterCategory
-     }*/
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*private var filterList = categoryArrayList
+private var filter: FilterCategory? = null*/
+
+
+/* deletBtn.setOnClickListener {
+     val builder = AlertDialog.Builder(context)
+     builder.setTitle("Delete")
+         .setMessage("Are you sure you want to delete this category?")
+         .setPositiveButton("Confirm") { a, d ->
+             Toast.makeText(context, "Deleting ...", Toast.LENGTH_LONG).show()
+             deletCategory(category)
+         }.setNegativeButton("Cancel") { a, d ->
+             a.dismiss()
+         }
+
+         .show()
+ }
+
+}*/
+
+/*  private fun deletCategory(model: Category) {
+ val id = model.id
+ val ref = FirebaseFirestore.getInstance().collection(CATEGORY_REF_OLD)
+
+
+ ref.child(id)
+     .removeValue()
+     .addOnSuccessListener {
+         Toast.makeText(context, "Deleting ...", Toast.LENGTH_LONG).show()
+     }
+     .addOnFailureListener {
+         Toast.makeText(
+             context,
+             "Unable to delete category ->${it.message} ...",
+             Toast.LENGTH_LONG
+         ).show()
+     }
+
+
+
+}*/
+
+/* override fun getFilter(): Filter {
+     if (filter==null){
+         filter= FilterCategory(filterList,this)
+     }
+     return filter as FilterCategory
+ }*/
 
 
 /*
